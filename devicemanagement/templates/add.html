@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Management</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <p>Your API KEY:
+        <p id="api-key">{{ apiKey }}</p>
+        </p>
+        <h1>Add a New device</h1>
+        <form action="/add/device/" id="device-form">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" required class="form-control" placeholder="Enter name of device" name="name">
+
+            </div>
+            <div class="form-group">
+                <label>Mac Address</label>
+                <input type="text" required class="form-control" placeholder="Enter Mac Address of new device"
+                    name="mac_address">
+            </div>
+
+            <input type="submit" class="btn btn-primary" value="Submit">
+            <a href="/" target=""><button type="button" class="btn btn-secondary">List Devices</button></a>
+        </form>
+        <p id="error-message"></p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    <script src="/static/js/main.js">
+
+    </script>
+</body>
+
+</html>

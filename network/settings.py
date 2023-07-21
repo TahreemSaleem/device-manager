@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    "rest_framework_api_key",
     'devicemanagement',
 ]
 
@@ -136,6 +137,9 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',    # Use BasicAuthentication for API authentication
     ],
 
+    # "DEFAULT_PERMISSION_CLASSES": [
+    #     "rest_framework_api_key.permissions.HasAPIKey",
+    # ],
 
     # Pagination
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
