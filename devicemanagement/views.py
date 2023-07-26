@@ -12,7 +12,10 @@ from rest_framework_api_key.models import APIKey
 from rest_framework.decorators import permission_classes
 
 class DeviceListView(APIView):
-  
+    """
+    	GET: List all devices, fetches them from db
+		
+    """
     def get(self, request, *args, **kwargs):
         devices = Device.objects.all()
         serializer = DeviceSerializer(devices, many=True)
@@ -20,11 +23,13 @@ class DeviceListView(APIView):
 
 
 class DeviceCreateView(APIView):
-   
+    """
+    	POST: Creates new device data, also validating request 
+		
+    """
     permission_classes = [HasAPIKey]
    
     def post(self, request, *args, **kwargs):
-        print(request.data)
         serializer = DeviceSerializer(data=request.data)
 
         if not serializer.is_valid():	
@@ -39,9 +44,12 @@ class DeviceCreateView(APIView):
     
 
 class DeviceFormView(APIView):
-
+    """
+    	GET: Renders html page with add device form
+		
+    """
+    # creates a static API key and sends it along the request
     api_key, key = APIKey.objects.create_key(name="global-key")
     def get(self, request, *args, **kwargs):
         
-        print(self.key)
         return render(request, 'add.html',{'apiKey': self.key})
